@@ -15,18 +15,21 @@ public class CircleSpawner : MonoBehaviour
     [SerializeField] private float timeBetweenCircleSpawns = 3f;
     [SerializeField] private float spawnTimeVariance = 1f;
     [SerializeField] private float minimumSpawnTime = 1f;
-
-    private Vector2 minBounds;
-    private Vector2 maxBounds;
     private float randomSpawnTime;
 
-    private const float minCircleSize = 0.25f;
+    private const float minCircleSize = 0.5f;
     private const float maxCircleSize = 3f;
     private float circleDiameter;
     
+    private BoundariesInitializer boundariesInitializer;
+
+    private void Awake()
+    {
+        boundariesInitializer = GetComponentInParent<BoundariesInitializer>();
+    }
+
     private void Start()
     {
-        InitializeBoundaries();
         StartCoroutine(SpawnAtRandomPosition());
     }
 
@@ -35,10 +38,11 @@ public class CircleSpawner : MonoBehaviour
         while (true)
         {
             circleDiameter = Random.Range(minCircleSize, maxCircleSize);
-            float randomSpawnPositionX = Random.Range(minBounds.x + circleDiameter / 2, maxBounds.x - circleDiameter / 2);
+            float randomSpawnPositionX = Random.Range(boundariesInitializer.minBounds.x + circleDiameter / 2,
+                boundariesInitializer.maxBounds.x - circleDiameter / 2);
             Circle circleInstance = 
                 Instantiate(circlePrafab, 
-                    new Vector3(randomSpawnPositionX, (float)(maxBounds.y + 3), 0), 
+                    new Vector3(randomSpawnPositionX, (float)(boundariesInitializer.maxBounds.y + 3), 0), 
                     quaternion.identity);
             circleInstance.SetScaleAndSpeed(circleDiameter);
             yield return new WaitForSeconds(GetRandomSpawnTime());
@@ -48,13 +52,5 @@ public class CircleSpawner : MonoBehaviour
     {
         float spawnTime = Random.Range(timeBetweenCircleSpawns - spawnTimeVariance, timeBetweenCircleSpawns + spawnTimeVariance);
         return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
-    }
-    
-    private void InitializeBoundaries()
-    {
-        Camera mainCamera = Camera.main;
-        if (mainCamera == null) return;
-        minBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
-        maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
     }
 }
