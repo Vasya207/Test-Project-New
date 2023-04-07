@@ -40,11 +40,13 @@ public class CircleSpawner : MonoBehaviour
             circleDiameter = Random.Range(minCircleSize, maxCircleSize);
             float randomSpawnPositionX = Random.Range(boundariesInitializer.minBounds.x + circleDiameter / 2,
                 boundariesInitializer.maxBounds.x - circleDiameter / 2);
+            
             Circle circleInstance = 
                 Instantiate(circlePrafab, 
                     new Vector3(randomSpawnPositionX, (float)(boundariesInitializer.maxBounds.y + 3), 0), 
                     quaternion.identity);
-            circleInstance.SetScaleAndSpeed(circleDiameter);
+            
+            circleInstance.SetSettings(circleDiameter);
             yield return new WaitForSeconds(GetRandomSpawnTime());
         }
     }
