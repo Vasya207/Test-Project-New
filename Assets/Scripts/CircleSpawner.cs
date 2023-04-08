@@ -17,10 +17,6 @@ public class CircleSpawner : MonoBehaviour
     [SerializeField] private float minimumSpawnTime = 1f;
     private float randomSpawnTime;
 
-    private const float minCircleSize = 0.5f;
-    private const float maxCircleSize = 3f;
-    private float circleDiameter;
-    
     private BoundariesInitializer boundariesInitializer;
 
     private void Awake()
@@ -37,16 +33,15 @@ public class CircleSpawner : MonoBehaviour
     {
         while (true)
         {
-            circleDiameter = Random.Range(minCircleSize, maxCircleSize);
-            float randomSpawnPositionX = Random.Range(boundariesInitializer.minBounds.x + circleDiameter / 2,
-                boundariesInitializer.maxBounds.x - circleDiameter / 2);
+            Circle circleInstance = Instantiate(circlePrafab);
+            circleInstance.InitializeCircle();
             
-            Circle circleInstance = 
-                Instantiate(circlePrafab, 
-                    new Vector3(randomSpawnPositionX, (float)(boundariesInitializer.maxBounds.y + 3), 0), 
-                    quaternion.identity);
+            float randomSpawnPositionX = Random.Range(boundariesInitializer.minBounds.x + circleInstance.circleDiameter / 2,
+                boundariesInitializer.maxBounds.x - circleInstance.circleDiameter / 2);
+
+            circleInstance.transform.position =
+                new Vector2(randomSpawnPositionX, boundariesInitializer.maxBounds.y + 3);
             
-            circleInstance.SetSettings(circleDiameter);
             yield return new WaitForSeconds(GetRandomSpawnTime());
         }
     }
