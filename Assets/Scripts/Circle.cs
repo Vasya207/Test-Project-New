@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -33,5 +35,13 @@ public class Circle : MonoBehaviour
     {
         circleSpawner.DeactivateCircle(this);
         pointsManager.AddPoints(circleDiameter);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Cleaner"))
+        {
+            circleSpawner.DeactivateCircle(this);
+        }
     }
 }
