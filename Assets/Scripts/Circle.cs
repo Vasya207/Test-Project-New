@@ -1,5 +1,3 @@
-using System;
-using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,12 +11,14 @@ public class Circle : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
     private PointsManager pointsManager;
+    private CircleSpawner circleSpawner;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         pointsManager = FindObjectOfType<PointsManager>();
+        circleSpawner = FindObjectOfType<CircleSpawner>();
     }
 
     public void InitializeCircle()
@@ -31,7 +31,7 @@ public class Circle : MonoBehaviour
     
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        circleSpawner.DeactivateCircle(this);
         pointsManager.AddPoints(circleDiameter);
     }
 }

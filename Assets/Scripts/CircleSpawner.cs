@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
 public class CircleSpawner : MonoBehaviour
@@ -18,6 +15,7 @@ public class CircleSpawner : MonoBehaviour
     private float randomSpawnTime;
 
     private BoundariesInitializer boundariesInitializer;
+    private ObjectPool<Circle> pool;
 
     private void Awake()
     {
@@ -26,6 +24,20 @@ public class CircleSpawner : MonoBehaviour
 
     private void Start()
     {
+        pool = new ObjectPool<Circle>(() =>
+        {
+            return Instantiate(circlePrafab);
+        }, shape =>
+        {
+            shape.gameObject.SetActive(true);
+        }, shape =>
+        {
+            shape.gameObject.SetActive(false);
+        }, shape =>
+        {
+            Destroy(shape.gameObject);
+        }, false, 10, 20);
+        
         StartCoroutine(SpawnAtRandomPosition());
     }
 
@@ -33,7 +45,7 @@ public class CircleSpawner : MonoBehaviour
     {
         while (true)
         {
-            Circle circleInstance = Instantiate(circlePrafab);
+            Circle circleInstance = pool.Get();
             circleInstance.InitializeCircle();
             
             float randomSpawnPositionX = Random.Range(boundariesInitializer.minBounds.x + circleInstance.circleDiameter / 2,
@@ -50,4 +62,6 @@ public class CircleSpawner : MonoBehaviour
         float spawnTime = Random.Range(timeBetweenCircleSpawns - spawnTimeVariance, timeBetweenCircleSpawns + spawnTimeVariance);
         return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
     }
+
+    public void DeactivateCircle(Circle circle) => pool.Release(circle);
 }
