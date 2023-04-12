@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using TMPro;
 
@@ -8,7 +7,7 @@ public class PointsManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private float pointsParameter = 10;
 
-    private float points = 0;
+    public float points { get; private set; }
 
     private void Start()
     {
