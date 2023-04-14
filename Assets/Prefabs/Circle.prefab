@@ -99,9 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a66bc7ee82b5a748b3192166d9c4063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedParameter: 2
-  minCircleSize: 0.5
-  maxCircleSize: 3
+  particleSystem: {fileID: 0}
+  circleDiameter: 0
 --- !u!50 &793849065775954183
 Rigidbody2D:
   serializedVersion: 4
