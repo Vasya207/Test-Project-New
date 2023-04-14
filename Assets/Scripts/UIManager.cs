@@ -1,13 +1,20 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject levelDisplay;
+    [SerializeField] private TextMeshProUGUI levelText;
+
+    private Animator levelDisplayAnimator;
 
     private void Awake()
     {
         pauseScreen.SetActive(false);
+        levelDisplayAnimator = levelDisplay.GetComponent<Animator>();
     }
 
     private void Update()
@@ -41,5 +48,11 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void DisplayLevel(int levelNumber)
+    {
+        levelText.text = $"LEVEL {levelNumber}";
+        levelDisplayAnimator.SetTrigger("appear");
     }
 }

@@ -81,7 +81,7 @@ public class CircleSpawner : MonoBehaviour
     
     public void DeactivateCircle(Circle circle) => pool.Release(circle);
 
-    public void NextLevel()
+    public void IncreaseDifficulty()
     {
         timeBetweenCircleSpawns -= timeBetweenCircleSpawns / 100 * 10;
         spawnTimeVariance -= spawnTimeVariance / 100 * 10;
