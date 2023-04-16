@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1f12a323f083244eaba055046317dc9
+guid: 7be64ef7003fc5744907075f935f92ba
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -143,5 +143,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
+  assetBundleName: content/backgroundsprites
   assetBundleVariant: 

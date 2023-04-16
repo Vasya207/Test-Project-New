@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private PointsManager pointsManager;
     [SerializeField] private CircleSpawner circleSpawner;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private SetUpBackground setUpBackground;
     
     [SerializeField] private int startingPointsBarrier = 100;
 
@@ -33,5 +34,6 @@ public class LevelManager : MonoBehaviour
         startingPointsBarrier *= 2;
         circleSpawner.IncreaseDifficulty();
         uiManager.DisplayLevel(currentLevel);   
+        setUpBackground.ChangeBackground();
     }
 }
