@@ -4,7 +4,6 @@ using UnityEngine;
 public class LoadAssetBundles : MonoBehaviour
 {
     [SerializeField] private string path;
-    [SerializeField] private string backgroundName;
     
     private AssetBundle loadedAssetBundle;
     public Sprite[] backgroundSprites { get; private set; }
@@ -12,7 +11,7 @@ public class LoadAssetBundles : MonoBehaviour
     void Awake()
     {
         LoadAssetBundle(path);
-        InstantiateObjectFromBundle(backgroundName);
+        InstantiateObjectFromBundle();
     }
 
     void LoadAssetBundle(string assetBundleURL)
@@ -20,7 +19,7 @@ public class LoadAssetBundles : MonoBehaviour
         loadedAssetBundle = AssetBundle.LoadFromFile(assetBundleURL);
     }
 
-    void InstantiateObjectFromBundle(string assetName)
+    void InstantiateObjectFromBundle()
     {
         backgroundSprites = loadedAssetBundle.LoadAllAssets<Sprite>();
         foreach (var sprite in backgroundSprites) Instantiate(sprite);
