@@ -18,15 +18,11 @@ public class LoadAssetBundles : MonoBehaviour
     void LoadAssetBundle(string assetBundleURL)
     {
         loadedAssetBundle = AssetBundle.LoadFromFile(assetBundleURL);
-        
-        //Debug.Log(myLoadedAssetBundle == null ? "false" : "true");
     }
 
     void InstantiateObjectFromBundle(string assetName)
     {
         backgroundSprites = loadedAssetBundle.LoadAllAssets<Sprite>();
-        //backgroundSprite = loadedAssetBundle.LoadAsset<Sprite>(assetName);
-        //var prefab = loadedAssetBundle.LoadAsset(assetName);
         foreach (var sprite in backgroundSprites) Instantiate(sprite);
     }
 }

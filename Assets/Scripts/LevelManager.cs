@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
         circleSpawner.circleColor = new Color(Random.value, Random.value, Random.value, 1);
         startingPointsBarrier *= 2;
         circleSpawner.IncreaseDifficulty();
-        uiManager.DisplayLevel(currentLevel);   
+        uiManager.DisplayLevel(currentLevel);
         setUpBackground.ChangeBackground();
     }
 }
