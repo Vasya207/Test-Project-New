@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 1290255258
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: content/backgroundsprites
+      Dependencies: {}

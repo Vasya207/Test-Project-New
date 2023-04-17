@@ -341,6 +341,10 @@ PrefabInstance:
       propertyPath: pointsText
       value: 
       objectReference: {fileID: 621772050}
+    - target: {fileID: 1060199316275900351, guid: f83d4fc55c14f7e4db18d84146106303, type: 3}
+      propertyPath: timeBetweenCircleSpawns
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1060199316913583541, guid: f83d4fc55c14f7e4db18d84146106303, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -457,6 +461,26 @@ PrefabInstance:
     - target: {fileID: 4778128217573028303, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
       propertyPath: m_Name
       value: AssetBundlesLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
+      propertyPath: iOSPath
+      value: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\iOS\content\backgroundsprites
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
+      propertyPath: iosPath
+      value: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\iOS\content\backgroundsprites
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
+      propertyPath: oldPath
+      value: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\content\backgroundsprites
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
+      propertyPath: androidPath
+      value: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\Android\content\backgroundsprites
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
+      propertyPath: windowsPath
+      value: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\StandaloneWindows\content\backgroundsprites
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}

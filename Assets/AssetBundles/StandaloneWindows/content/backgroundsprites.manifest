@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 1470409152
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f45b0fa60aebebd4b6ddf89eef95c565
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c21d61fe394c58399df3c6fb5c7c99b3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Sprites/Background/Background_2.jpg
+- Assets/Sprites/Background/Background_4.jpg
+- Assets/Sprites/Background/Background_1.png
+- Assets/Sprites/Background/Background_3.jpg
+- Assets/Sprites/Background/Background_0.jpg
+- Assets/Sprites/Background/Background_5.jpg
+Dependencies: []
