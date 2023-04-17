@@ -94,7 +94,7 @@ MonoBehaviour:
   speedParameter: 2
   minCircleSize: 0.5
   maxCircleSize: 3
-  timeBetweenCircleSpawns: 2
+  timeBetweenCircleSpawns: 1.5
   spawnTimeVariance: 1
   minimumSpawnTime: 1
   circleColor: {r: 0, g: 0, b: 0, a: 0}

@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e9bcc19385f6045a50f526243af265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\content\backgroundsprites
+  androidPath: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\Android\content\backgroundsprites
+  iOSPath: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\iOS\content\backgroundsprites
+  windowsPath: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\StandaloneWindows\content\backgroundsprites
+  workingPath: E:\Udemy_Courses_and_Projects\Test Project\Test-Project\Assets\AssetBundles\content\backgroundsprites

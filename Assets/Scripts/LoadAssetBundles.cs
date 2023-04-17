@@ -1,19 +1,24 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LoadAssetBundles : MonoBehaviour
 {
     [SerializeField] private string androidPath;
     [SerializeField] private string iOSPath;
     [SerializeField] private string windowsPath;
-    [SerializeField] private string oldPath;
+    [SerializeField] private string workingPath;
     
     private AssetBundle loadedAssetBundle;
     public Sprite[] backgroundSprites { get; private set; }
     
     void Awake()
     {
-        LoadAssetBundle();
-        InstantiateObjectFromBundle();
+        DontDestroyOnLoad(transform.gameObject);
+        if (loadedAssetBundle == null)
+        {
+            LoadAssetBundle();
+            InstantiateObjectFromBundle();
+        }
     }
 
     void LoadAssetBundle()
@@ -32,7 +37,7 @@ public class LoadAssetBundles : MonoBehaviour
         }
         else
         {
-            loadedAssetBundle = AssetBundle.LoadFromFile(windowsPath);
+            loadedAssetBundle = AssetBundle.LoadFromFile(workingPath);
         }
     }
 
