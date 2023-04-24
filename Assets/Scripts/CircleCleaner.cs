@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class CircleCleaner : Singleton
 {
-    [SerializeField] private CircleSpawner circleSpawner;
     private BoundariesInitializer boundariesInitializer;
 
     private Action<CircleCleaner> _killAction;
-    
+
     private void Start()
     {
         SetUp();

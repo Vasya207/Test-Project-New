@@ -4,7 +4,7 @@ public class SetUpBackground : Singleton
 {
     [SerializeField] private LoadAssetBundles assetBundles;
 
-    private int currentIndex = 0;
+    private int currentIndex;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()

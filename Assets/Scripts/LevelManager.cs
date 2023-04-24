@@ -1,17 +1,17 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class LevelManager : Singleton 
+public class LevelManager : Singleton
 {
     [SerializeField] private PointsManager pointsManager;
     [SerializeField] private CircleSpawner circleSpawner;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private SetUpBackground setUpBackground;
-    
+
     [SerializeField] private int startingPointsBarrier = 100;
 
     private int currentLevel = 1;
-    
+
     private void Start()
     {
         circleSpawner.circleColor = new Color(Random.value, Random.value, Random.value, 1);

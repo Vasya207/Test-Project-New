@@ -6,10 +6,10 @@ public class LoadAssetBundles : Singleton
     [SerializeField] private string iOSPath;
     [SerializeField] private string windowsPath;
     [SerializeField] private string workingPath;
-    
+
     private AssetBundle loadedAssetBundle;
     public Sprite[] backgroundSprites { get; private set; }
-    
+
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);

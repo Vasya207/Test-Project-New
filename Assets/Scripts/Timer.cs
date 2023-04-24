@@ -3,8 +3,8 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [Header("Timer Text Component")] 
-    [SerializeField] private TextMeshProUGUI timerText;
+    [Header("Timer Text Component")] [SerializeField]
+    private TextMeshProUGUI timerText;
 
     private float currentTime;
 

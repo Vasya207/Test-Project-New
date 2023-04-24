@@ -3,8 +3,9 @@ using TMPro;
 
 public class PointsManager : Singleton
 {
-    [Header("Points Text Component")] 
-    [SerializeField] private TextMeshProUGUI pointsText;
+    [Header("Points Text Component")] [SerializeField]
+    private TextMeshProUGUI pointsText;
+
     [SerializeField] private float pointsParameter = 10;
 
     public float points { get; private set; }

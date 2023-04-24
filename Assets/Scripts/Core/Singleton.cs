@@ -3,6 +3,7 @@ using UnityEngine;
 public class Singleton : MonoBehaviour
 {
     private static Singleton instance;
+
     public static Singleton Instance
     {
         get
@@ -11,9 +12,11 @@ public class Singleton : MonoBehaviour
             {
                 SetupInstance();
             }
+
             return instance;
         }
     }
+
     private void Awake()
     {
         if (instance == null)
