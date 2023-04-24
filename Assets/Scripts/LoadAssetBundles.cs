@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class LoadAssetBundles : MonoBehaviour
+public class LoadAssetBundles : Singleton
 {
     [SerializeField] private string androidPath;
     [SerializeField] private string iOSPath;

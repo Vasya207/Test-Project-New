@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class PointsManager : MonoBehaviour
+public class PointsManager : Singleton
 {
     [Header("Points Text Component")] 
     [SerializeField] private TextMeshProUGUI pointsText;

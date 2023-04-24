@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CircleCleaner : MonoBehaviour
+public class CircleCleaner : Singleton
 {
     [SerializeField] private CircleSpawner circleSpawner;
     private BoundariesInitializer boundariesInitializer;

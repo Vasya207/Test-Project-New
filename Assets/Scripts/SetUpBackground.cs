@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SetUpBackground : MonoBehaviour
+public class SetUpBackground : Singleton
 {
     [SerializeField] private LoadAssetBundles assetBundles;
 

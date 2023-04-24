@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton
 {
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject levelDisplay;

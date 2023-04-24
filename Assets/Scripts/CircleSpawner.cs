@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
-public class CircleSpawner : MonoBehaviour
+public class CircleSpawner : Singleton
 {
     [Header("Circle Prefab")]
     [SerializeField] private Circle circlePrafab;
