@@ -1,7 +1,8 @@
+using Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class LevelManager : Singleton
+public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private PointsManager pointsManager;
     [SerializeField] private CircleSpawner circleSpawner;

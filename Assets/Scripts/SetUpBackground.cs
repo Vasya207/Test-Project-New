@@ -1,6 +1,7 @@
+using Core;
 using UnityEngine;
 
-public class SetUpBackground : Singleton
+public class SetUpBackground : Singleton<SetUpBackground>
 {
     [SerializeField] private LoadAssetBundles assetBundles;
 

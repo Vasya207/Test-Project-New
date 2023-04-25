@@ -1,44 +1,57 @@
+using System;
 using UnityEngine;
 
-public class Singleton : MonoBehaviour
+namespace Core
 {
-    private static Singleton instance;
-
-    public static Singleton Instance
+    public class Singleton<T> : MonoBehaviour where T : Component
     {
-        get
+        public event Action OnAwake;
+        
+        private static T instance;
+
+        public static T Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = (T)FindObjectOfType(typeof(T));
+                    if (instance == null) SetupInstance();
+                }
+
+                return instance;
+            }
+        }
+
+        public void Awake()
+        {
+            OnAwake?.Invoke();
+            RemoveDuplicates();
+        }
+
+        private static void SetupInstance()
+        {
+            instance = (T)FindObjectOfType(typeof(T));
+            if (instance == null)
+            {
+                var gameObj = new GameObject();
+                gameObj.name = typeof(T).Name;
+                instance = gameObj.AddComponent<T>();
+                DontDestroyOnLoad(gameObj);
+            }
+        }
+
+        private void RemoveDuplicates()
         {
             if (instance == null)
             {
-                SetupInstance();
+                instance = this as T;
+                DontDestroyOnLoad(gameObject);
             }
-
-            return instance;
-        }
-    }
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private static void SetupInstance()
-    {
-        instance = FindObjectOfType<Singleton>();
-        if (instance == null)
-        {
-            GameObject gameObj = new GameObject();
-            gameObj.name = "Singleton";
-            instance = gameObj.AddComponent<Singleton>();
-            DontDestroyOnLoad(gameObj);
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

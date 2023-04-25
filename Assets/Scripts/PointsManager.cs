@@ -1,7 +1,8 @@
+using Core;
 using UnityEngine;
 using TMPro;
 
-public class PointsManager : Singleton
+public class PointsManager : Singleton<PointsManager>
 {
     [Header("Points Text Component")] [SerializeField]
     private TextMeshProUGUI pointsText;

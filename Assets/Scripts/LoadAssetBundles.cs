@@ -1,6 +1,7 @@
+using Core;
 using UnityEngine;
 
-public class LoadAssetBundles : Singleton
+public class LoadAssetBundles : Singleton<PointsManager>
 {
     [SerializeField] private string androidPath;
     [SerializeField] private string iOSPath;

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Circle : MonoBehaviour
@@ -15,8 +16,8 @@ public class Circle : MonoBehaviour
     private void Awake()
     {
         particleSystem = FindObjectOfType<ParticleSystem>();
-        pointsManager = FindObjectOfType<PointsManager>();
-        circleSpawner = FindObjectOfType<CircleSpawner>();
+        pointsManager = PointsManager.Instance;
+        circleSpawner = CircleSpawner.Instance;
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         settings = FindObjectOfType<ParticleSystem>().main;

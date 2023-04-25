@@ -1,7 +1,8 @@
 using System;
+using Core;
 using UnityEngine;
 
-public class CircleCleaner : Singleton
+public class CircleCleaner : Singleton<CircleCleaner>
 {
     private BoundariesInitializer boundariesInitializer;
 

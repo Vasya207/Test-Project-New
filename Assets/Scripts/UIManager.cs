@@ -1,8 +1,9 @@
+using Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class UIManager : Singleton
+public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject levelDisplay;

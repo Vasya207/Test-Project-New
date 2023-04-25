@@ -1,9 +1,10 @@
 using System.Collections;
+using Core;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
-public class CircleSpawner : Singleton
+public class CircleSpawner : Singleton<CircleSpawner>
 {
     [Header("Circle Prefab")] [SerializeField]
     private Circle circlePrafab;
