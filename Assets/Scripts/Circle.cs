@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Circle : MonoBehaviour
@@ -10,24 +9,24 @@ public class Circle : MonoBehaviour
     
     private PointsManager pointsManager;
     private CircleSpawner circleSpawner;
+    private ParticleSystemController particleSystemController;
     
     public float circleDiameter;
 
     private void Awake()
     {
-        particleSystem = FindObjectOfType<ParticleSystem>();
+        particleSystemController = ParticleSystemController.Instance;
         pointsManager = PointsManager.Instance;
         circleSpawner = CircleSpawner.Instance;
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        settings = FindObjectOfType<ParticleSystem>().main;
     }
 
     private void OnMouseDown()
     {
         circleSpawner.DeactivateCircle(this);
         pointsManager.AddPoints(circleDiameter);
-        PlayParticles();
+        particleSystemController.PlayParticles(spriteRenderer, transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -36,13 +35,6 @@ public class Circle : MonoBehaviour
         {
             circleSpawner.DeactivateCircle(this);
         }
-    }
-
-    private void PlayParticles()
-    {
-        particleSystem.transform.position = transform.position;
-        settings.startColor = new ParticleSystem.MinMaxGradient(spriteRenderer.color);
-        particleSystem.Play();
     }
 
     public void SetUpSpeed(Vector2 vel)
