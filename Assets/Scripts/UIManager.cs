@@ -1,3 +1,4 @@
+using System;
 using Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,16 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI levelText;
 
     private Animator levelDisplayAnimator;
+
+    private void OnEnable()
+    {
+        Signals.OnNewLevel.AddListener(OnNewLevel);
+    }
+
+    private void OnNewLevel(int level)
+    {
+        DisplayLevel(level);
+    }
 
     private void Awake()
     {
@@ -50,7 +61,7 @@ public class UIManager : Singleton<UIManager>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void DisplayLevel(int levelNumber)
+    private void DisplayLevel(int levelNumber)
     {
         levelText.text = $"LEVEL {levelNumber}";
         levelDisplayAnimator.SetTrigger("appear");

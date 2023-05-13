@@ -10,16 +10,16 @@ public class CircleSpawner : Singleton<CircleSpawner>
     private Circle circlePrafab;
 
     [Header("Circle Parameters")] [SerializeField]
-    private float speedParameter = 2;
+    private float speedParameter = Constants.SpeedParameter;
 
-    [SerializeField] private float minCircleSize = 0.5f;
-    [SerializeField] private float maxCircleSize = 3f;
+    [SerializeField] private float minCircleSize = Constants.MinCircleSize;
+    [SerializeField] private float maxCircleSize = Constants.MaxCircleSize;
 
     [Header("Spawn Time")] [SerializeField]
-    private float timeBetweenCircleSpawns = 3f;
+    private float timeBetweenCircleSpawns = Constants.TimeBetweenCircleSpawns;
 
-    [SerializeField] private float spawnTimeVariance = 1f;
-    [SerializeField] private float minimumSpawnTime = 1f;
+    [SerializeField] private float spawnTimeVariance = Constants.SpawnTimeVariance;
+    [SerializeField] private float minimumSpawnTime = Constants.MinimumSpawnTime;
 
     private float randomSpawnTime;
     public float circleDiameter { get; private set; }
@@ -32,6 +32,32 @@ public class CircleSpawner : Singleton<CircleSpawner>
         boundariesInitializer = GetComponentInParent<BoundariesInitializer>();
     }
 
+    private void OnEnable()
+    {
+        Signals.OnNewLevel.AddListener(OnNewLevel);
+        Signals.OnLevelStart.AddListener(OnLevelStart);
+    }
+
+    private void OnLevelStart(int arg0)
+    {
+        ChangeCirclesColor();
+    }
+
+    private void OnDisable()
+    {
+        Signals.OnNewLevel.RemoveListener(OnNewLevel);
+    }
+
+    private void OnNewLevel(int arg0)
+    {
+        IncreaseDifficulty();
+        ChangeCirclesColor();
+    }
+
+    private void ChangeCirclesColor()
+    {
+        circleColor = new Color(Random.value, Random.value, Random.value, 1);
+    }
     private void Start()
     {
         pool = new ObjectPool<Circle>(CreateFunc, ActionOnGet, ActionOnRelease, ActionOnDestroy,
@@ -95,7 +121,7 @@ public class CircleSpawner : Singleton<CircleSpawner>
 
     public void DeactivateCircle(Circle circle) => pool.Release(circle);
 
-    public void IncreaseDifficulty()
+    private void IncreaseDifficulty()
     {
         timeBetweenCircleSpawns -= timeBetweenCircleSpawns / 100 * 10;
         spawnTimeVariance -= spawnTimeVariance / 100 * 10;
