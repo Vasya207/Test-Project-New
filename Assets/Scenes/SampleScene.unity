@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &98798586 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7079223422522175980, guid: 20d63ef54b4046e4cac3090c31c972e7, type: 3}
-  m_PrefabInstance: {fileID: 7079223422587025942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10000a42fa4105f49888697c7c1f2c7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &116713226 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7079223422539554076, guid: 20d63ef54b4046e4cac3090c31c972e7, type: 3}
@@ -145,24 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &480021898 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7945342832790544558, guid: 488f743f0f12a7e41939d9fbe6fc6cde, type: 3}
-  m_PrefabInstance: {fileID: 7945342833022771165}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &480021900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480021898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a691a6b94726ff64c9b194e6690d711a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleSystem: {fileID: 7945342833022771166}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,28 +297,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1352529962 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-  m_PrefabInstance: {fileID: 1459328644622225926}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e9bcc19385f6045a50f526243af265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1837946269 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5554119610476340757, guid: c929301f023cd7d4fa527f37e645832c, type: 3}
-  m_PrefabInstance: {fileID: 3487858164679021444}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1523967d550377f4f9e390a7ff88646f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1060199316748074947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,84 +357,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060199317099271051, guid: f83d4fc55c14f7e4db18d84146106303, type: 3}
-      propertyPath: uiManager
-      value: 
-      objectReference: {fileID: 98798586}
-    - target: {fileID: 1060199317099271051, guid: f83d4fc55c14f7e4db18d84146106303, type: 3}
       propertyPath: setUpBackground
       value: 
-      objectReference: {fileID: 1837946269}
+      objectReference: {fileID: 0}
     - target: {fileID: 1060199317248702900, guid: f83d4fc55c14f7e4db18d84146106303, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 116713226}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f83d4fc55c14f7e4db18d84146106303, type: 3}
---- !u!1001 &1459328644622225926
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256173363122814999, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4778128217573028303, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: m_Name
-      value: AssetBundlesLoader
-      objectReference: {fileID: 0}
-    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: androidPath
-      value: E:\UnityProjects\Test Project\Test-Project\Assets\AssetBundles\Android\content\backgroundsprites
-      objectReference: {fileID: 0}
-    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
-      propertyPath: workingPath
-      value: E:\UnityProjects\Test Project\Test-Project\Assets\AssetBundles\Android\content\backgroundsprites
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
 --- !u!1001 &2358946360618400792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -598,10 +478,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
-    - target: {fileID: 5554119610476340757, guid: c929301f023cd7d4fa527f37e645832c, type: 3}
-      propertyPath: assetBundles
-      value: 
-      objectReference: {fileID: 1352529962}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c929301f023cd7d4fa527f37e645832c, type: 3}
 --- !u!1001 &7079223422587025942
@@ -758,8 +634,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 488f743f0f12a7e41939d9fbe6fc6cde, type: 3}
---- !u!198 &7945342833022771166 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7945342832471613996, guid: 488f743f0f12a7e41939d9fbe6fc6cde, type: 3}
-  m_PrefabInstance: {fileID: 7945342833022771165}
-  m_PrefabAsset: {fileID: 0}

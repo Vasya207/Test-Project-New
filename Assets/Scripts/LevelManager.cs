@@ -4,8 +4,8 @@ using UnityEngine;
 public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private PointsManager pointsManager;
-    [SerializeField] private SetUpBackground setUpBackground;
     [SerializeField] private int startingPointsBarrier = 100;
+    //[SerializeField] private SetUpBackground setUpBackground;
 
     private int currentLevel = 1;
 
@@ -13,7 +13,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         Signals.OnLevelStart.Invoke(currentLevel);
     }
-
+    
     private void Update()
     {
         if (pointsManager.points >= startingPointsBarrier)
