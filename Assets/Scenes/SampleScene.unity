@@ -476,6 +476,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AssetBundlesLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
+      propertyPath: androidPath
+      value: E:\UnityProjects\Test Project\Test-Project\Assets\AssetBundles\Android\content\backgroundsprites
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927976935011387939, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
+      propertyPath: workingPath
+      value: E:\UnityProjects\Test Project\Test-Project\Assets\AssetBundles\Android\content\backgroundsprites
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e1ed9b72b630f499e1b624dcba197b, type: 3}
 --- !u!1001 &2358946360618400792

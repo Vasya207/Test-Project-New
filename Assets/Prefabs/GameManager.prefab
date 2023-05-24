@@ -191,8 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsManager: {fileID: 1060199316076129432}
-  circleSpawner: {fileID: 1060199316275900351}
-  uiManager: {fileID: 0}
   setUpBackground: {fileID: 0}
   startingPointsBarrier: 100
 --- !u!1 &1060199317248702901
