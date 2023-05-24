@@ -26,6 +26,6 @@ public class LevelManager : Singleton<LevelManager>
     {
         currentLevel++;
         Signals.OnNewLevel.Invoke(currentLevel);
-        startingPointsBarrier *= 2;
+        startingPointsBarrier *= Constants.PointsBarrierMultiplier;
     }
 }

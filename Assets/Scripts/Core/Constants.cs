@@ -8,5 +8,7 @@ namespace Core
         public static float SpawnTimeVariance = 1f;
         public static float MinimumSpawnTime = 1f;
         public static float SpeedParameter = 2f;
+        public static float DifficultyParameter = 1000;
+        public static int PointsBarrierMultiplier = 2;
     }
 }

@@ -123,10 +123,10 @@ public class CircleSpawner : Singleton<CircleSpawner>
 
     private void IncreaseDifficulty()
     {
-        timeBetweenCircleSpawns -= timeBetweenCircleSpawns / 100 * 10;
-        spawnTimeVariance -= spawnTimeVariance / 100 * 10;
-        minimumSpawnTime -= minimumSpawnTime / 100 * 10;
-        speedParameter += speedParameter / 100 * 10;
-        maxCircleSize -= maxCircleSize / 100 * 10;
+        timeBetweenCircleSpawns -= timeBetweenCircleSpawns / Constants.DifficultyParameter;
+        spawnTimeVariance -= spawnTimeVariance / Constants.DifficultyParameter;
+        minimumSpawnTime -= minimumSpawnTime / Constants.DifficultyParameter;
+        speedParameter += speedParameter / Constants.DifficultyParameter;
+        maxCircleSize -= maxCircleSize / Constants.DifficultyParameter;
     }
 }
