@@ -15,7 +15,7 @@ public class BoundariesInitializer : Singleton<PointsManager>
     {
         Camera mainCamera = Camera.main;
         if (mainCamera == null) return;
-        minBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
-        maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
+        minBounds = mainCamera.ViewportToWorldPoint(Vector2.zero);
+        maxBounds = mainCamera.ViewportToWorldPoint(Vector2.one);
     }
 }
