@@ -1,40 +1,34 @@
+using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class Circle : MonoBehaviour
 {
+    [Inject] private ParticleSystemController particleSystemController;
+    [Inject] private PointsManager pointsManager;
+    [Inject] private CircleFactory circleFactory;
+    //[Inject] private CircleSpawner circleSpawner;
+    
     private SpriteRenderer spriteRenderer;
     private new Rigidbody2D rigidbody;
-    private new ParticleSystem particleSystem;
-    private ParticleSystem.MainModule settings;
     
-    private PointsManager pointsManager;
-    private CircleSpawner circleSpawner;
-    private ParticleSystemController particleSystemController;
-    
-    public float circleDiameter;
-
     private void Awake()
     {
-        particleSystemController = ParticleSystemController.Instance;
-        pointsManager = PointsManager.Instance;
-        circleSpawner = CircleSpawner.Instance;
+        gameObject.SetActive(true);
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
+    
     private void OnMouseDown()
     {
-        circleSpawner.DeactivateCircle(this);
-        pointsManager.AddPoints(circleDiameter);
-        particleSystemController.PlayParticles(spriteRenderer, transform.position);
+        DeactivateObject();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void DeactivateObject()
     {
-        if (col.CompareTag("Cleaner"))
-        {
-            circleSpawner.DeactivateCircle(this);
-        }
+        pointsManager.AddPoints(circleFactory.circleDiameter);
+        particleSystemController.PlayParticles(spriteRenderer, transform.position);
+        circleFactory.DeactivateCircle(this);
     }
 
     public void SetUpSpeed(Vector2 vel)
@@ -45,5 +39,10 @@ public class Circle : MonoBehaviour
     public void SetUpColor(Color color)
     {
         spriteRenderer.color = color;
+    }
+    
+    public class Factory : PlaceholderFactory<Circle>
+    {
+        
     }
 }

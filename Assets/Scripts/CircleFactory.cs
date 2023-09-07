@@ -1,34 +1,24 @@
 using System.Collections;
 using Core;
 using UnityEngine;
-using UnityEngine.Pool;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 using Zenject;
 
-public class CircleSpawner : MonoBehaviour
+public class CircleFactory : MonoBehaviour
 {
-    [Header("Circle Prefab")] [SerializeField]
-    private Circle circlePrefab;
-
-    [Header("Circle Parameters")] [SerializeField]
-    private float speedParameter = Constants.SpeedParameter;
-
+    [SerializeField] private float speedParameter = Constants.SpeedParameter;
     [SerializeField] private float minCircleSize = Constants.MinCircleSize;
     [SerializeField] private float maxCircleSize = Constants.MaxCircleSize;
-
-    [Header("Spawn Time")] [SerializeField]
-    private float timeBetweenCircleSpawns = Constants.TimeBetweenCircleSpawns;
-
+    [SerializeField] private float timeBetweenCircleSpawns = Constants.TimeBetweenCircleSpawns;
     [SerializeField] private float spawnTimeVariance = Constants.SpawnTimeVariance;
     [SerializeField] private float minimumSpawnTime = Constants.MinimumSpawnTime;
     
     [Inject] private BoundariesInitializer boundariesInitializer;
-
+    [Inject] private Circle.Factory circleFactory;
+    
     private float randomSpawnTime;
     public float circleDiameter { get; private set; }
     [HideInInspector] public Color circleColor;
-    private ObjectPool<Circle> pool;
     
     private void OnEnable()
     {
@@ -36,87 +26,38 @@ public class CircleSpawner : MonoBehaviour
         Signals.OnLevelStart.AddListener(OnLevelStart);
     }
 
-    private void OnLevelStart(int arg0)
-    {
-        ChangeCirclesColor();
-    }
-
     private void OnDisable()
     {
         Signals.OnNewLevel.RemoveListener(OnNewLevel);
+        //Signals.OnLevelStart.RemoveListener(OnLevelStart);
     }
-
-    private void OnNewLevel(int arg0)
-    {
-        IncreaseDifficulty();
-        ChangeCirclesColor();
-    }
-
-    private void ChangeCirclesColor()
-    {
-        circleColor = new Color(Random.value, Random.value, Random.value, 1);
-    }
+    
     private void Start()
     {
-        pool = new ObjectPool<Circle>(CreateFunc, ActionOnGet, ActionOnRelease, ActionOnDestroy,
-            false, 10, 20);
-
         StartCoroutine(SpawnAtRandomPosition());
     }
-
-    private Circle CreateFunc()
-    {
-        return Instantiate(circlePrefab, transform);
-    }
-
-    private void ActionOnGet(Circle shape)
-    {
-        shape.gameObject.SetActive(true);
-    }
-
-    private void ActionOnRelease(Circle shape)
-    {
-        shape.gameObject.SetActive(false);
-    }
-
-    private void ActionOnDestroy(Circle shape)
-    {
-        Destroy(shape.gameObject);
-    }
-
+    
     private IEnumerator SpawnAtRandomPosition()
     {
         while (true)
         {
-            Circle circleInstance = pool.Get();
+            Circle circleInstance = circleFactory.Create();
             InitializeCircle(circleInstance);
-
+            
             float randomSpawnPositionX = Random.Range(boundariesInitializer.minBounds.x + circleDiameter / 2,
                 boundariesInitializer.maxBounds.x - circleDiameter / 2);
 
             circleInstance.transform.position =
-                new Vector2(randomSpawnPositionX, boundariesInitializer.maxBounds.y + 3);
+                new Vector2(randomSpawnPositionX, boundariesInitializer.maxBounds.y + maxCircleSize);
 
             yield return new WaitForSeconds(GetRandomSpawnTime());
         }
     }
 
-    private float GetRandomSpawnTime()
+    public void DeactivateCircle(Circle circle)
     {
-        float spawnTime = Random.Range(timeBetweenCircleSpawns - spawnTimeVariance,
-            timeBetweenCircleSpawns + spawnTimeVariance);
-        return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
+        circle.gameObject.SetActive(false);
     }
-
-    private void InitializeCircle(Circle circleInst)
-    {
-        circleDiameter = Random.Range(minCircleSize, maxCircleSize);
-        circleInst.transform.localScale = new Vector2(circleDiameter, circleDiameter);
-        circleInst.SetUpSpeed(new Vector2(0, -(speedParameter / circleDiameter)));
-        circleInst.SetUpColor(circleColor);
-    }
-
-    public void DeactivateCircle(Circle circle) => pool.Release(circle);
 
     private void IncreaseDifficulty()
     {
@@ -125,5 +66,42 @@ public class CircleSpawner : MonoBehaviour
         minimumSpawnTime -= minimumSpawnTime / Constants.DifficultyParameter;
         speedParameter += speedParameter / Constants.DifficultyParameter;
         maxCircleSize -= maxCircleSize / Constants.DifficultyParameter;
+    }
+    
+    private float GetRandomSpawnTime()
+    {
+        float spawnTime = Random.Range(timeBetweenCircleSpawns - spawnTimeVariance,
+            timeBetweenCircleSpawns + spawnTimeVariance);
+        return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
+    }
+    
+    private void InitializeCircle(Circle circleInst)
+    {
+        circleInst.SetUpColor(circleColor);
+        circleDiameter = Random.Range(minCircleSize, maxCircleSize);
+        circleInst.transform.localScale = new Vector2(circleDiameter, circleDiameter);
+        circleInst.SetUpSpeed(new Vector2(0, -(speedParameter / circleDiameter)));
+    }
+    
+    public void Spawn()
+    {
+        Circle circleInstance = circleFactory.Create();
+        circleInstance.transform.position = Vector3.zero;
+    }
+    
+    private void OnLevelStart(int arg0)
+    {
+        ChangeCirclesColor();
+    }
+    
+    private void OnNewLevel(int arg0)
+    {
+        IncreaseDifficulty();
+        ChangeCirclesColor();
+    }
+    
+    private void ChangeCirclesColor()
+    {
+        circleColor = new Color(Random.value, Random.value, Random.value, 1);
     }
 }

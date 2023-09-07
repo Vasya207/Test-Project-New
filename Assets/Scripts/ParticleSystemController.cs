@@ -1,19 +1,21 @@
 using Core;
 using UnityEngine;
+using Zenject;
 
-public class ParticleSystemController : Singleton<ParticleSystemController>
+public class ParticleSystemController : MonoBehaviour
 {
     [SerializeField] private ParticleSystem particleSystem;
-    private ParticleSystem.MainModule particlesSettings;
-    private void Awake()
+    private ParticleSystem.MainModule particleSettings;
+    
+    [Inject] private void Construct()
     {
-        particlesSettings = particleSystem.main;
+        particleSettings = particleSystem.main;
     }
 
     public void PlayParticles(SpriteRenderer spriteRenderer, Vector3 position)
     {
         particleSystem.transform.position = position;
-        particlesSettings.startColor = new ParticleSystem.MinMaxGradient(spriteRenderer.color);
+        particleSettings.startColor = new ParticleSystem.MinMaxGradient(spriteRenderer.color);
         particleSystem.Play();
     }
 }

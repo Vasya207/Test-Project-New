@@ -1,7 +1,7 @@
 using Core;
 using UnityEngine;
 
-public class BoundariesInitializer : Singleton<PointsManager>
+public class BoundariesInitializer : MonoBehaviour
 {
     public Vector2 minBounds { get; private set; }
     public Vector2 maxBounds { get; private set; }

@@ -1,15 +1,16 @@
+using System;
 using Core;
 using UnityEngine;
+using Zenject;
 
-public class LevelManager : Singleton<LevelManager>
+public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private PointsManager pointsManager;
     [SerializeField] private int startingPointsBarrier = 100;
-    //[SerializeField] private SetUpBackground setUpBackground;
+    [Inject] private PointsManager pointsManager;
 
     private int currentLevel = 1;
 
-    private void Start()
+    private void Awake()
     {
         Signals.OnLevelStart.Invoke(currentLevel);
     }
