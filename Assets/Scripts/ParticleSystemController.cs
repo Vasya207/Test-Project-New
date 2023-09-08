@@ -12,10 +12,10 @@ public class ParticleSystemController : MonoBehaviour
         particleSettings = particleSystem.main;
     }
 
-    public void PlayParticles(SpriteRenderer spriteRenderer, Vector3 position)
+    public void PlayParticles(Color color, Vector3 position)
     {
         particleSystem.transform.position = position;
-        particleSettings.startColor = new ParticleSystem.MinMaxGradient(spriteRenderer.color);
+        particleSettings.startColor = new ParticleSystem.MinMaxGradient(color);
         particleSystem.Play();
     }
 }

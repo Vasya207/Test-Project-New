@@ -1,14 +1,13 @@
 using System;
 using Core;
+using Signals;
 using UnityEngine;
 using Zenject;
 
 public class CircleCleaner : MonoBehaviour
 {
     [Inject] private BoundariesInitializer boundariesInitializer;
-    [Inject] private CircleObjectPoolFactory circleObjectPoolFactory;
-    
-    private Action<CircleCleaner> _killAction;
+    [Inject] private SignalBus signalBus;
 
     private void Start()
     {
@@ -20,7 +19,7 @@ public class CircleCleaner : MonoBehaviour
         var circle = other.GetComponent<Circle>();
         if (circle != null)
         {
-            circleObjectPoolFactory.DeactivateCircle(circle);
+            signalBus.Fire(new OnDeactivateCircleSignal(circle));
         }
     }
 

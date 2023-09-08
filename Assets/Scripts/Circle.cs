@@ -1,19 +1,17 @@
 using System.Collections;
+using Signals;
 using UnityEngine;
 using Zenject;
 
 public class Circle : MonoBehaviour
 {
-    [Inject] private ParticleSystemController particleSystemController;
-    [Inject] private PointsManager pointsManager;
-    [Inject] private CircleObjectPoolFactory circleObjectPoolFactory;
+    [Inject] private SignalBus signalBus;
     
     private SpriteRenderer spriteRenderer;
     private new Rigidbody2D rigidbody;
     
     private void Awake()
     {
-        gameObject.SetActive(true);
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -25,9 +23,9 @@ public class Circle : MonoBehaviour
 
     private void DeactivateObject()
     {
-        pointsManager.AddPoints(circleObjectPoolFactory.circleDiameter);
-        particleSystemController.PlayParticles(spriteRenderer, transform.position);
-        circleObjectPoolFactory.DeactivateCircle(this);
+        signalBus.Fire(new OnAddPointsSignal(transform.localScale.x));
+        signalBus.Fire(new OnPlayParticlesSignal(spriteRenderer.color, transform.position));
+        signalBus.Fire(new OnDeactivateCircleSignal(this));
     }
 
     public void SetUpSpeed(Vector2 vel)

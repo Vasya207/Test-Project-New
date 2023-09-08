@@ -22,6 +22,15 @@ public class DefaultInstaller : MonoInstaller
         
         Container.DeclareSignal<OnLevelStartSignal>();
         Container.BindSignal<OnLevelStartSignal>().ToMethod<OnLevelStartCommand>(signal => signal.Execute).FromNew();
+
+        Container.DeclareSignal<OnAddPointsSignal>();
+        Container.BindSignal<OnAddPointsSignal>().ToMethod<OnAddPointsCommand>(signal => signal.Execute).FromNew();
+
+        Container.DeclareSignal<OnDeactivateCircleSignal>();
+        Container.BindSignal<OnDeactivateCircleSignal>().ToMethod<OnDeactivateCircleCommand>(signal => signal.Execute).FromNew();
+
+        Container.DeclareSignal<OnPlayParticlesSignal>();
+        Container.BindSignal<OnPlayParticlesSignal>().ToMethod<OnPlayParticlesCommand>(signal => signal.Execute).FromNew();
     }
 
     private void InstallObjects()
