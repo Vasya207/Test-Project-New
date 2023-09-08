@@ -6,8 +6,7 @@ public class Circle : MonoBehaviour
 {
     [Inject] private ParticleSystemController particleSystemController;
     [Inject] private PointsManager pointsManager;
-    [Inject] private CircleFactory circleFactory;
-    //[Inject] private CircleSpawner circleSpawner;
+    [Inject] private CircleObjectPoolFactory circleObjectPoolFactory;
     
     private SpriteRenderer spriteRenderer;
     private new Rigidbody2D rigidbody;
@@ -26,9 +25,9 @@ public class Circle : MonoBehaviour
 
     private void DeactivateObject()
     {
-        pointsManager.AddPoints(circleFactory.circleDiameter);
+        pointsManager.AddPoints(circleObjectPoolFactory.circleDiameter);
         particleSystemController.PlayParticles(spriteRenderer, transform.position);
-        circleFactory.DeactivateCircle(this);
+        circleObjectPoolFactory.DeactivateCircle(this);
     }
 
     public void SetUpSpeed(Vector2 vel)

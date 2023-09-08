@@ -808,6 +808,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleFactory
       objectReference: {fileID: 0}
+    - target: {fileID: 2650361706581935131, guid: 0a93181f2a7ae9f4680b1b36a40cc384, type: 3}
+      propertyPath: speedParameter
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650361706581935131, guid: 0a93181f2a7ae9f4680b1b36a40cc384, type: 3}
+      propertyPath: minimumSpawnTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650361706581935131, guid: 0a93181f2a7ae9f4680b1b36a40cc384, type: 3}
+      propertyPath: spawnTimeVariance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650361706581935131, guid: 0a93181f2a7ae9f4680b1b36a40cc384, type: 3}
+      propertyPath: timeBetweenCircleSpawns
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a93181f2a7ae9f4680b1b36a40cc384, type: 3}
 --- !u!1001 &3487858164679021444

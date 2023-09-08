@@ -1,26 +1,18 @@
 using System;
 using Core;
+using Signals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Zenject;
 
-public class UIManager : Singleton<UIManager>
+public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject levelDisplay;
     [SerializeField] private TextMeshProUGUI levelText;
-
+    
     private Animator levelDisplayAnimator;
-
-    private void OnEnable()
-    {
-        Signals.OnNewLevel.AddListener(OnNewLevel);
-    }
-
-    private void OnNewLevel(int level)
-    {
-        DisplayLevel(level);
-    }
 
     private void Awake()
     {
@@ -61,7 +53,7 @@ public class UIManager : Singleton<UIManager>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void DisplayLevel(int levelNumber)
+    public void DisplayLevel(int levelNumber)
     {
         levelText.text = $"LEVEL {levelNumber}";
         levelDisplayAnimator.SetTrigger("appear");
