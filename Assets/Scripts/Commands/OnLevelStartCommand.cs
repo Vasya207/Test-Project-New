@@ -1,16 +1,20 @@
-﻿using Signals;
+﻿using Commands;
+using Signals;
 using UnityEngine;
 using Zenject;
 
 namespace Core.Commands
 {
-    public class OnLevelStartCommand : ICommand
+    public class OnLevelStartCommand : ICommandWithParameters
     {
         [Inject] private CircleObjectPoolFactory circleObjectPoolFactory;
+        [Inject] private UIManager uiManager;
         
-        public void Execute()
+        public void Execute(ISignal signal)
         {
+            var parameters = (OnLevelStartSignal) signal;
             circleObjectPoolFactory.ChangeCirclesColor();
+            uiManager.DisplayLevel(parameters.LevelNumber);
         }
     }
 }

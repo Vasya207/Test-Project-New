@@ -5,12 +5,12 @@ namespace Commands
 {
     public class OnPlayParticlesCommand : ICommandWithParameters
     {
-        [Inject] private ParticleSystemController particleSystemController;
+        [Inject] private ParticleSystemManager particleSystemManager;
         
         public void Execute(ISignal signal)
         {
             var parameters = (OnPlayParticlesSignal) signal;
-            particleSystemController.PlayParticles(parameters.ParticleColor, parameters.ParticlePosition);
+            particleSystemManager.PlayParticles(parameters.ParticleColor, parameters.ParticlePosition);
         }
     }
 }

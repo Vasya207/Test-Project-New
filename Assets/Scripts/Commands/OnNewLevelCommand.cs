@@ -14,7 +14,7 @@ namespace Commands
         public void Execute(ISignal signal)
         {
             var parameters = (OnNewLevelSignal) signal;
-            uiManager.DisplayLevel(parameters.Parameter);
+            uiManager.DisplayLevel(parameters.LevelNumber);
             circleObjectPoolFactory.IncreaseDifficulty();
             circleObjectPoolFactory.ChangeCirclesColor();
         }

@@ -2,11 +2,11 @@
 {
     public class OnAddPointsSignal : ISignal
     {
-        public float Parameter { get; }
+        public float PointsValue { get; }
 
         public OnAddPointsSignal(float value)
         {
-            Parameter = value;
+            PointsValue = value;
         }
     }
 }

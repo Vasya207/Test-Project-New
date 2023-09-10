@@ -10,7 +10,7 @@ namespace Commands
         public void Execute(ISignal signal)
         {
             var parameters = (OnAddPointsSignal) signal;
-            pointsManager.AddPoints(parameters.Parameter);
+            pointsManager.AddPoints(parameters.PointsValue);
         }
     }
 }

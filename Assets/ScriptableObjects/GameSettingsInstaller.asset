@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f51d69d189c4443a5978c1c9c716b6, type: 3}
+  m_Name: GameSettingsInstaller
+  m_EditorClassIdentifier: 
+  DefaultInstaller:
+    CirclePrefab: {fileID: 4896411475203198055, guid: 0258e9a3fc8563f47bde0da7c996a143, type: 3}
+  Particles:
+    ParticleSystemParameters:
+      ParticlePrefab: {fileID: 4148711107709404969, guid: 2665d8fd14f93af44962740e31fac8ff, type: 3}
+  CircleOPFactory:
+    CircleParameters:
+      SpeedParameter: 6
+      MinCircleSize: 0.5
+      MaxCircleSize: 3
+      TimeBetweenCircleSpawns: 1
+      SpawnTimeVariance: 0.5
+      MinimumSpawnTime: 0.5
+  LevelManager:
+    LevelManagerParameters:
+      StartingPointsBarrier: 100

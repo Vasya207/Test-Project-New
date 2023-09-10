@@ -6,11 +6,11 @@ namespace Signals
 {
     public class OnNewLevelSignal : ISignal
     {
-        public int Parameter { get; }
+        public int LevelNumber { get; }
 
         public OnNewLevelSignal(int value)
         {
-            Parameter = value;
+            LevelNumber = value;
         }
     }
 }
