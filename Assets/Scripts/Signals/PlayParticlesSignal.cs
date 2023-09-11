@@ -2,12 +2,12 @@
 
 namespace Signals
 {
-    public class OnPlayParticlesSignal : ISignal
+    public class PlayParticlesSignal : ISignal
     {
         public Color ParticleColor { get; }
         public Vector2 ParticlePosition { get; }
 
-        public OnPlayParticlesSignal(Color colorValue, Vector2 positionValue)
+        public PlayParticlesSignal(Color colorValue, Vector2 positionValue)
         {
             ParticleColor = colorValue;
             ParticlePosition = positionValue;

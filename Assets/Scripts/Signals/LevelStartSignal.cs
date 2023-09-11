@@ -1,10 +1,10 @@
 ﻿namespace Signals
 {
-    public class OnLevelStartSignal : ISignal
+    public class LevelStartSignal : ISignal
     {
         public int LevelNumber { get; }
 
-        public OnLevelStartSignal(int value)
+        public LevelStartSignal(int value)
         {
             LevelNumber = value;
         }

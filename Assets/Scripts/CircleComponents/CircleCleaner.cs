@@ -19,13 +19,13 @@ public class CircleCleaner : MonoBehaviour
         var circle = other.GetComponent<Circle>();
         if (circle != null)
         {
-            signalBus.Fire(new OnDeactivateCircleSignal(circle));
+            signalBus.Fire(new DeactivateCircleSignal(circle));
         }
     }
 
     private void SetUp()
     {
-        transform.position = new Vector2(0, boundariesInitializerManager.minBounds.y + boundariesInitializerManager.minBounds.y);
-        transform.localScale = new Vector2(boundariesInitializerManager.maxBounds.x, Constants.One);
+        transform.position = new Vector2(0, boundariesInitializerManager.MinBounds.y + boundariesInitializerManager.MinBounds.y);
+        transform.localScale = new Vector2(boundariesInitializerManager.MaxBounds.x, Constants.One);
     }
 }

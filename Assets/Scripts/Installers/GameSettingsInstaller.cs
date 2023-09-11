@@ -6,7 +6,7 @@ using Zenject;
 [CreateAssetMenu(fileName = "GameSettingsInstaller", menuName = "Installers/GameSettingsInstaller")]
 public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
 {
-    public GameInstaller.Settings DefaultInstaller;
+    public CirclePrefabSettings Circle;
     public ParticleSettings Particles;
     public CircleObjectPoolFactorySettings CircleOPFactory;
     public LevelManagerSettings LevelManager;
@@ -27,11 +27,17 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
     public class LevelManagerSettings
     {
         public LevelManager.Settings LevelManagerParameters;
+    }    
+    
+    [Serializable]
+    public class CirclePrefabSettings
+    {
+        public Circle CirclePrefab;
     }
     
     public override void InstallBindings()
     {
-        Container.BindInstance(DefaultInstaller);
+        Container.BindInstance(Circle);
         Container.BindInstance(Particles.ParticleSystemParameters);
         Container.BindInstance(CircleOPFactory.CircleParameters);
         Container.BindInstance(LevelManager.LevelManagerParameters);

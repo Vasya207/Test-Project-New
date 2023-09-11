@@ -1,10 +1,10 @@
 ﻿namespace Signals
 {
-    public class OnDeactivateCircleSignal : ISignal
+    public class DeactivateCircleSignal : ISignal
     {
         public Circle CircleObj { get; }
         
-        public OnDeactivateCircleSignal(Circle circleInst)
+        public DeactivateCircleSignal(Circle circleInst)
         {
             CircleObj = circleInst;
         }

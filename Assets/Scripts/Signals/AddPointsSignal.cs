@@ -1,10 +1,10 @@
 ﻿namespace Signals
 {
-    public class OnAddPointsSignal : ISignal
+    public class AddPointsSignal : ISignal
     {
         public float PointsValue { get; }
 
-        public OnAddPointsSignal(float value)
+        public AddPointsSignal(float value)
         {
             PointsValue = value;
         }

@@ -3,13 +3,13 @@ using Zenject;
 
 namespace Commands
 {
-    public class OnAddPointsCommand : ICommandWithParameters
+    public class AddPointsCommand : ICommandWithParameters
     {
         [Inject] private PointsManager pointsManager;
         
         public void Execute(ISignal signal)
         {
-            var parameters = (OnAddPointsSignal) signal;
+            var parameters = (AddPointsSignal) signal;
             pointsManager.AddPoints(parameters.PointsValue);
         }
     }

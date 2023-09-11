@@ -22,9 +22,9 @@ public class Circle : MonoBehaviour
 
     private void DeactivateObject()
     {
-        signalBus.Fire(new OnAddPointsSignal(transform.localScale.x));
-        signalBus.Fire(new OnPlayParticlesSignal(spriteRenderer.color, transform.position));
-        signalBus.Fire(new OnDeactivateCircleSignal(this));
+        signalBus.Fire(new AddPointsSignal(transform.localScale.x));
+        signalBus.Fire(new PlayParticlesSignal(spriteRenderer.color, transform.position));
+        signalBus.Fire(new DeactivateCircleSignal(this));
     }
 
     public void SetUpSpeed(Vector2 vel)

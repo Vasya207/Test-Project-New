@@ -4,21 +4,22 @@ using Signals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseScreen;
-    [SerializeField] private GameObject levelDisplay;
+    [SerializeField] private Animator levelDisplayAnimator;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI pointsText;
     
-    private Animator levelDisplayAnimator;
+    //private Animator levelDisplayAnimator;
 
     private void Awake()
     {
         pauseScreen.SetActive(false);
-        levelDisplayAnimator = levelDisplay.GetComponent<Animator>();
+        // levelDisplayAnimator = levelDisplayAnimator.GetComponent<Animator>();
         SetPointsText(Constants.Zero);
     }
 

@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        signalBus.Fire(new OnLevelStartSignal(currentLevel));
+        signalBus.Fire(new LevelStartSignal(currentLevel));
     }
 
     private void Update()
@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
     private void NextLevel()
     {
         currentLevel++;
-        signalBus.Fire(new OnNewLevelSignal(currentLevel));
+        signalBus.Fire(new NewLevelSignal(currentLevel));
         startingPointsBarrier *= Constants.PointsBarrierMultiplier;
     }
     

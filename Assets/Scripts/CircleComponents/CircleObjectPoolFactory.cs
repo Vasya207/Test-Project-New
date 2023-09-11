@@ -73,11 +73,11 @@ public class CircleObjectPoolFactory : MonoBehaviour
             Circle circleInstance = objectPool.Get();
             InitializeCircle(circleInstance);
             
-            float randomSpawnPositionX = Random.Range(boundariesInitializerManager.minBounds.x + CircleDiameter / 2,
-                boundariesInitializerManager.maxBounds.x - CircleDiameter / 2);
+            float randomSpawnPositionX = Random.Range(boundariesInitializerManager.MinBounds.x + CircleDiameter / 2,
+                boundariesInitializerManager.MaxBounds.x - CircleDiameter / 2);
 
             circleInstance.transform.position =
-                new Vector2(randomSpawnPositionX, boundariesInitializerManager.maxBounds.y + maxCircleSize);
+                new Vector2(randomSpawnPositionX, boundariesInitializerManager.MaxBounds.y + maxCircleSize);
 
             yield return new WaitForSeconds(GetRandomSpawnTime());
         }

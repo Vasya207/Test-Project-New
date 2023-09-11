@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 7079223423897469535}
-  levelDisplay: {fileID: 7079223423097379191}
+  levelDisplayAnimator: {fileID: 7079223423097379189}
   levelText: {fileID: 7079223423048077415}
   pointsText: {fileID: 7079223423072978692}
 --- !u!1 &7079223422539554065

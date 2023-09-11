@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f51d69d189c4443a5978c1c9c716b6, type: 3}
   m_Name: GameSettingsInstaller
   m_EditorClassIdentifier: 
-  DefaultInstaller:
+  Circle:
     CirclePrefab: {fileID: 4896411475203198055, guid: 0258e9a3fc8563f47bde0da7c996a143, type: 3}
   Particles:
     ParticleSystemParameters:

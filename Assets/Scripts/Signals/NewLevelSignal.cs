@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Signals
 {
-    public class OnNewLevelSignal : ISignal
+    public class NewLevelSignal : ISignal
     {
         public int LevelNumber { get; }
 
-        public OnNewLevelSignal(int value)
+        public NewLevelSignal(int value)
         {
             LevelNumber = value;
         }

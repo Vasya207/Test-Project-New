@@ -5,14 +5,14 @@ using Zenject;
 
 namespace Core.Commands
 {
-    public class OnLevelStartCommand : ICommandWithParameters
+    public class LevelStartCommand : ICommandWithParameters
     {
         [Inject] private CircleObjectPoolFactory circleObjectPoolFactory;
         [Inject] private UIManager uiManager;
         
         public void Execute(ISignal signal)
         {
-            var parameters = (OnLevelStartSignal) signal;
+            var parameters = (LevelStartSignal) signal;
             circleObjectPoolFactory.ChangeCirclesColor();
             uiManager.DisplayLevel(parameters.LevelNumber);
         }
