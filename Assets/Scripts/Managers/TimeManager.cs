@@ -1,16 +1,19 @@
 using UnityEngine;
 using TMPro;
 
-public class TimeManager : MonoBehaviour
+namespace Managers
 {
-    [Header("Timer Text Component")] [SerializeField]
-    private TextMeshProUGUI timerText;
-
-    private float currentTime;
-
-    private void Update()
+    public class TimeManager : MonoBehaviour
     {
-        currentTime += Time.deltaTime;
-        timerText.text = currentTime.ToString("0.00");
+        [Header("Timer Text Component")] [SerializeField]
+        private TextMeshProUGUI timerText;
+
+        private float currentTime;
+
+        private void Update()
+        {
+            currentTime += Time.deltaTime;
+            timerText.text = currentTime.ToString("0.00");
+        }
     }
 }

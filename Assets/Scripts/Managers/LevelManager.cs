@@ -1,46 +1,49 @@
 using System;
-using Core;
+using Constants;
 using Signals;
 using UnityEngine;
 using Zenject;
 
-public class LevelManager : MonoBehaviour
+namespace Managers
 {
-    [Inject] private PointsManager pointsManager;
-    [Inject] private SignalBus signalBus;
-
-    private int startingPointsBarrier;
-    private int currentLevel = 1;
-
-    [Inject]
-    private void Construct(Settings settings)
+    public class LevelManager : MonoBehaviour
     {
-        startingPointsBarrier = settings.StartingPointsBarrier;
-    }
+        [Inject] private PointsManager pointsManager;
+        [Inject] private SignalBus signalBus;
 
-    private void Start()
-    {
-        signalBus.Fire(new LevelStartSignal(currentLevel));
-    }
+        private int startingPointsBarrier;
+        private int currentLevel = 1;
 
-    private void Update()
-    {
-        if (pointsManager.Points >= startingPointsBarrier)
+        [Inject]
+        private void Construct(Settings settings)
         {
-            NextLevel();
+            startingPointsBarrier = settings.StartingPointsBarrier;
         }
-    }
 
-    private void NextLevel()
-    {
-        currentLevel++;
-        signalBus.Fire(new NewLevelSignal(currentLevel));
-        startingPointsBarrier *= Constants.PointsBarrierMultiplier;
-    }
+        private void Start()
+        {
+            signalBus.Fire(new LevelStartSignal(currentLevel));
+        }
+
+        private void Update()
+        {
+            if (pointsManager.Points >= startingPointsBarrier)
+            {
+                NextLevel();
+            }
+        }
+
+        private void NextLevel()
+        {
+            currentLevel++;
+            signalBus.Fire(new NewLevelSignal(currentLevel));
+            startingPointsBarrier *= GameplayConstants.PointsBarrierMultiplier;
+        }
     
-    [Serializable]
-    public class Settings
-    {
-        public int StartingPointsBarrier = 100;
+        [Serializable]
+        public class Settings
+        {
+            public int StartingPointsBarrier = 100;
+        }
     }
 }

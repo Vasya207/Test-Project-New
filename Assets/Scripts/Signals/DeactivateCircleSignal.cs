@@ -1,4 +1,6 @@
-﻿namespace Signals
+﻿using CircleComponents;
+
+namespace Signals
 {
     public class DeactivateCircleSignal : ISignal
     {

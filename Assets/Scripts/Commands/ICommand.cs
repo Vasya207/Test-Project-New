@@ -1,4 +1,4 @@
-﻿namespace Core.Commands
+﻿namespace Commands
 {
     public interface ICommand
     {

@@ -1,9 +1,12 @@
 using Zenject;
 
-public class BootstrapInstaller : MonoInstaller
+namespace Installers
 {
-    public override void InstallBindings()
+    public class BootstrapInstaller : MonoInstaller
     {
+        public override void InstallBindings()
+        {
         
+        }
     }
 }
